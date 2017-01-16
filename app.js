@@ -43,7 +43,7 @@ module.exports.parse = function(texString, callback){
 function spawnLatexProcess(attempt, outputDirectory, outputLogs, callback){
 	var outputFilePath = path.join(outputDirectory, "output.pdf");
 	
-	var env = Object.create(process.env); // inherit the standard environment
+	var env = Object.assign({}, process.env); // inherit the standard environment
 	if (compileCommand.texpath) {
 		env.TEXINPUTS = compileCommand.texpath;
 	}
